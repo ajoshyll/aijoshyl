@@ -2,3 +2,4 @@ Flask
 pypdf
 requests
 gunicorn
+google-genai

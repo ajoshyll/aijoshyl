@@ -147,6 +147,7 @@ def chat():
 
 
 
+        python
     elif jenis_file == "pdf":
 
         prompt = f"""
@@ -154,11 +155,9 @@ Pertanyaan pengguna:
 
 {pertanyaan if pertanyaan else "Jelaskan isi PDF ini."}
 
-
 ISI PDF:
 
 {isi_pdf[:30000]}
-
 
 INSTRUKSI:
 
@@ -170,17 +169,13 @@ INSTRUKSI:
 """
 
         try:
-
             jawaban = tanya_gemini(prompt)
-
         except Exception as e:
-
             jawaban = f"Jo mengalami masalah saat membaca PDF: {e}"
 
-
+    else:
 
         if not pertanyaan:
-
             return jsonify({
                 "reply": "Silakan tulis pertanyaan terlebih dahulu."
             })
@@ -213,7 +208,6 @@ jelas, dan mudah dipahami.
 """
 
         try:
-
             jawaban = tanya_gemini(prompt)
 
             riwayat.append({
@@ -222,8 +216,8 @@ jelas, dan mudah dipahami.
             })
 
         except Exception as e:
-
             jawaban = f"Terjadi kesalahan saat menghubungi Gemini: {e}"
+
 
 
     if file_path and os.path.exists(file_path):
